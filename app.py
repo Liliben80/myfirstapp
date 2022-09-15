@@ -31,16 +31,7 @@ def predict(id_customer):
     result = {'Probability' : tab.iloc[0]['Probability'], 'Classe' : tab.iloc[0]['Prediction']}
     return jsonify(result)
 
-# Prediction by model
-@app.route('/', methods=["POST", "GET"])
-def predict_model():
-    vector = request.get_json().get('vector')
-    vector = np.array(vector)
-    vector = vector.reshape(1,len(vector))
-    proba = model.predict_proba(vector)[0][0]
-    predict = 1 if proba > thres_choice else 0
-    result = {'Probability' : proba, 'Classe' : predict}
-    return jsonify(result)
+
 
 # Excecution
 if __name__ == "__main__":
