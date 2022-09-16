@@ -47,4 +47,4 @@ if __name__ == "__main__":
     data = pickle.load(open('C:/Users/zahra/P7_Ben Ali_Linda/myfirstapp/df_modelisation.pkl', 'rb'))
     model = pickle.load(open('C:/Users/zahra/P7_Ben Ali_Linda/myfirstapp/model.pkl', 'rb'))
     thres_choice =  0.8
-    app.run()
+    app.run(debug=True ,port=8080,use_reloader=False)
