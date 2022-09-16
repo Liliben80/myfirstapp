@@ -15,7 +15,6 @@ from lightgbm import LGBMClassifier
 
 # Statement  
 app = Flask(__name__)
-server = app.server
 
 # @app.route("/")
 # def hello():
