@@ -25,14 +25,14 @@ app = Flask(__name__)
 #     return 'Hello {}!'.format(name.capitalize())
 
 # Prediction with identifier
-@app.route('/<int:id_customer>', methods=["GET"])
+@app.route('/predict/<int:id_customer>', methods=["GET"])
 def predict(id_customer):
     tab = data[data['SK_ID_CURR']==id_customer]
     result = {'Probability' : tab.iloc[0]['Probability'], 'Classe' : tab.iloc[0]['Prediction']}
     return jsonify(result)
 
 # Prediction by model
-@app.route('/', methods=["POST", "GET"])
+@app.route('/predict_model', methods=["POST", "GET"])
 def predict_model():
     vector = request.get_json().get('vector')
     vector = np.array(vector)
